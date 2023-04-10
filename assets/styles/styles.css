@@ -1,0 +1,208 @@
+/* 
+=============================================
+Variables
+=============================================
+*/
+:root {
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-500: hsl(158, 36%, 20%);
+  --clr-secondary-200: hsl(30, 38%, 92%);
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-400: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --ff-base: 'Montserrat', sans-serif;
+  --ff-accent: 'Fraunces', serif;
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/* Font Family */
+/* font-family: 'Fraunces', serif;
+font-family: 'Montserrat', sans-serif; */
+
+/* 
+  =============================================
+  Styles Reset
+  =============================================
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remueve margen predeterminado */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Eliminar estilos de lista en elementos ul, ol con un rol de lista */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Smooth scrolling */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Body defaults */
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem;
+  color: var(--clr-neutral-400);
+  background-color: var(--clr-secondary-200);
+  margin: 1rem;
+  /* Center in middle */
+  display: grid;
+  place-content: center;
+}
+
+/* Los elementos que no tienen una clase obtienen estilos predeterminados */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Hacer que las imágenes sean más fáciles de trabajar */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Heredar fuentes para entradas y botones */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Elimine todas las animaciones, transiciones y desplazamiento suave para las personas que prefieren no verlos */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+/* 
+  =============================================
+  btn
+  =============================================
+  */
+.button {
+  align-items: center;
+  background-color: var(--clr-primary-400);
+  border-radius: .5rem;
+  border: 0;
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.925rem;
+  font-weight: var(--fw-bold);
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 0.75em 1.5em;
+}
+
+/* Cart Icon */
+.button[data-icon="shopping-cart"]::before {
+  content: '';
+  width: 15px;
+  height: 16px;
+  background-image: url("/assets/images/icon-cart.svg");
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-primary-500);
+}
+/* 
+=============================================
+Styling
+=============================================
+*/
+
+.flex-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* For screen reader only */
+.visually-hidden:not(:focus):not(:active) {
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.product {
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 600px;
+  display: grid;
+}
+
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.product__content {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.product__category {
+  font-size: 0.8125rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.product__title {
+  color: var(--clr-neutral-900);
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+.product__price {
+  color: var(--clr-primary-400);
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+}
