@@ -131,11 +131,12 @@ select {
 }
 
 /* Cart Icon */
-.button[data-icon="shopping-cart"]::before {
-  content: '';
+/* [data-icon="shopping-cart"]::before */
+.button img {
+/*   content: ''; */
   width: 15px;
   height: 16px;
-  background-image: url("/assets/images/icon-cart.svg");
+/*   background-image: url("/assets/images/icon-cart.svg"); */
 }
 
 .button:is(:hover, :focus) {
